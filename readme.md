@@ -6,10 +6,12 @@ You need Python(version 2.7 or 3.5+) installed on both remote proxy server and y
 
 ### Step 1. Generate secret.key file:
 On local PC:  
-(Python2) Run: python secret.py  
-(Python3) Run: python secret3.py  
+(Python2) Run: python secret.py [key_length]  
+(Python3) Run: python secret3.py [key_length]  
 
-If a secret.key file already exists, it will ask if you want to generate a new one. If you choose 'N' then the old secret.key will be preserved.
+key_length is an optional argument to set generated secret.key file size. The default value 4096 is usually ok.
+
+If a secret.key file already exists, it will ask if you want to overwrite. If you choose 'N' then the old secret.key will be preserved.
 
 ### Step 2. Modify config.json file:
 * server_host: Host name or IP of your remote server.

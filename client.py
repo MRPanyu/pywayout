@@ -9,7 +9,7 @@ class ThreadingTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer): p
 class ClientServer(SocketServer.StreamRequestHandler):
     def handle(self):
         random.seed();
-        pos = random.randrange(4096)
+        pos = random.randrange(len(Secret.key))
         self.secret_in = Secret(pos)
         self.secret_out = Secret(pos)
         enc = self.secret_in.enc
