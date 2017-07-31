@@ -79,7 +79,11 @@ def main():
     print('config server_port: ' + str(server_port))
     server = ThreadingTCPServer(('', server_port), Socks5Server)
     print('bind port: %d' % server_port + ' ok!')
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except:
+        print('Interruted, exit program.')
+        os._exit(1)
 
 if __name__ == '__main__':
     main()

@@ -53,7 +53,11 @@ def main():
     print 'config client_port: ' + str(client_port)
     server = ThreadingTCPServer(('', client_port), ClientServer)
     print 'bind port: %d' % client_port + ' ok!'
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except:
+        print('Interruted, exit program.')
+        os._exit(1)
 
 if __name__ == '__main__':
     main()
