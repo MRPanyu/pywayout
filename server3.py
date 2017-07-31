@@ -43,7 +43,7 @@ class Socks5Server(socketserver.StreamRequestHandler):
                 addr = dec(self.rfile.read(dec(self.rfile.read(1))[0]))
             addr = str(addr, 'UTF-8')
             port = struct.unpack('>H', dec(self.rfile.read(2)))
-            print("addrtype: " + str(addrtype) + "addr: " + addr + ", port: " + str(port[0]))
+            print("addrtype: " + str(addrtype) + ", addr: " + addr + ", port: " + str(port[0]))
             reply = b'\x05\x00\x00\x01'
             try:
                 if mode == 1 and addr != None:  # 1. Tcp connect

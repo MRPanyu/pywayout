@@ -44,7 +44,7 @@ class Socks5Server(SocketServer.StreamRequestHandler):
             elif addrtype == 3:     # Domain name
                 addr = dec(self.rfile.read(ord(dec(self.rfile.read(1)))))
             port = struct.unpack('>H', dec(self.rfile.read(2)))
-            print "addrtype: " + str(addrtype) + "addr: " + addr + ", port: " + str(port[0])
+            print "addrtype: " + str(addrtype) + ", addr: " + addr + ", port: " + str(port[0])
             reply = "\x05\x00\x00\x01"
             try:
                 if mode == 1 and addr != None:  # 1. Tcp connect
